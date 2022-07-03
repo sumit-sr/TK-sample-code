@@ -1,0 +1,57 @@
+inherit_from: .rubocop_todo.yml
+
+Metrics/BlockLength:
+  IgnoredMethods: [
+    'proc',
+    'describe',
+    'context',
+    'feature',
+    'scenario',
+    'create_table',
+    'configure',
+    'task',
+    'namespace',
+    'draw',
+    'define',
+    'it',
+    'FactoryBot.define',
+    'factory',
+    'shared_examples'
+  ]
+  Exclude:
+    - Guardfile
+
+AllCops:
+  NewCops: disable
+  SuggestExtensions: false
+
+  Exclude:
+    - bin/rails
+    - bin/setup
+    - bin/rake
+    - bin/update
+    - bin/spring
+    - bin/bundle
+    - db/schema.rb
+    - spec/spec_helper.rb
+    - db/migrate/*.rb
+    - config/*.rb
+    - config/**/*.rb
+
+Style/Documentation:
+  Include:
+    - lib/**/*
+
+Documentation:
+  Enabled: false
+
+GlobalVars:
+  AllowedVariables:
+    - $redis
+    - $aws_s3_setting
+    - $upload_bucket
+    - $s3_client
+
+Lint/MissingSuper:
+  Exclude:
+    - app/**/*
